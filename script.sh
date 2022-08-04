@@ -1,4 +1,1 @@
-#!/bin/bash
-sudo apt-get update
-sudo apt install python3-pip
-sudo apt install python3-pandas
+apt-get -y update && apt install python3-pandas -y
