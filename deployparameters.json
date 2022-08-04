@@ -6,7 +6,7 @@
       "value": "demouser"
     },
     "adminPassword": {
-      "value": "GEN-UNIQUE-NUM-16"
+      "value": "GEN-PASSWORD-16"
     },
     "DeploymentID": {
       "value": "GET-DEPLOYMENT-ID"
