@@ -1,0 +1,40 @@
+"parameters": {
+    "adminUsername": {
+        "value": "demouser"
+    },
+    "adminPassword": {
+        "value": "GEN-PASSWORD-16"
+    },
+    "DeploymentID": {
+        "value": "GET-DEPLOYMENT-ID"
+    },
+    "dnsLabelPrefix": {
+        "type": "string",
+        "defaultValue": "[toLower(format('{0}-{1}', parameters('vmName'), uniqueString(resourceGroup().id)))]",
+        "metadata": {
+            "description": "Unique DNS Name for the Public IP used to access the Virtual Machine."
+        }
+    },
+    "ubuntuOSVersion": {
+        "Value": "18.04-LTS",
+    },
+    "location": {
+        "defaultValue": "[resourceGroup().location]"
+    },
+    "vmSize": {
+        "type": "string",
+        "defaultValue": "Standard_B2s",
+    },
+    "virtualNetworkName": {
+        "type": "string",
+        "defaultValue": "vNet"
+    },
+    "subnetName": {
+        "type": "string",
+        "defaultValue": "Subnet"
+    },
+    "networkSecurityGroupName": {
+        "type": "string",
+        "defaultValue": "SecGroupNet"
+    }
+}
