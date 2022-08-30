@@ -1,0 +1,129 @@
+{
+  "properties": {
+    "displayName": "CustomPolicy",
+    "policyType": "Custom",
+    "mode": "All",
+    "metadata": {
+      "createdBy": "fc8a430a-aeca-4d86-929d-96bf78377720",
+      "createdOn": "2022-08-30T10:19:40.7357844Z",
+      "updatedBy": null,
+      "updatedOn": null
+    },
+    "parameters": {},
+    "policyRule": {
+      "if": {
+        "anyOf": [
+          {
+            "not": {
+              "anyOf": [
+                {
+                  "field": "type",
+                  "like": "Microsoft.Compute/disks/*"
+                },
+                {
+                  "field": "type",
+                  "like": "Microsoft.Compute/virtualMachines/*"
+                },
+                {
+                  "field": "type",
+                  "like": "Microsoft.Network/networkInterfaces/*"
+                },
+                {
+                  "field": "type",
+                  "like": "Microsoft.Network/networkSecurityGroups/*"
+                },
+                {
+                  "field": "type",
+                  "like": "Microsoft.Network/publicIPAddresses/*"
+                },
+                {
+                  "field": "type",
+                  "like": "Microsoft.Network/virtualNetworks/*"
+                },
+                {
+                  "field": "type",
+                  "in": [
+                    "Microsoft.Compute/disks",
+                    "Microsoft.Compute/virtualMachines",
+                    "Microsoft.Network/networkInterfaces",
+                    "Microsoft.Network/networkSecurityGroups",
+                    "Microsoft.Network/publicIPAddresses",
+                    "Microsoft.Network/virtualNetworks"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "allof": [
+              {
+                "field": "type",
+                "equals": "Microsoft.Compute/disks"
+              },
+              {
+                "not": {
+                  "field": "Microsoft.Compute/disks/Sku.Tier",
+                  "in": [
+                    "Standard_LRS"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "allOf": [
+              {
+                "field": "type",
+                "equals": "Microsoft.Compute/virtualMachines"
+              },
+              {
+                "not": {
+                  "allOf": [
+                    {
+                      "field": "Microsoft.Compute/virtualMachines/imageOffer",
+                      "in": [
+                        "ubuntu-2004"
+                      ]
+                    },
+                    {
+                      "field": "Microsoft.Compute/virtualMachines/imagePublisher",
+                      "in": [
+                        "MicrosoftDSVM"
+                      ]
+                    },
+                    {
+                      "field": "Microsoft.Compute/virtualMachines/imageSku",
+                      "in": [
+                        "Ubuntu 2004"
+                      ]
+                    },
+                    {
+                      "field": "Microsoft.Compute/virtualMachines/sku.name",
+                      "in": [
+                        "Standard_NC8as_T4_v3"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "effect": "deny"
+      }
+    }
+  },
+  "id": "/subscriptions/3829b047-06da-4f38-bc43-fddb1fe2f7dd/providers/Microsoft.Authorization/policyDefinitions/58cd5e9e-35dd-4b32-8985-6ae22c0f67a2",
+  "type": "Microsoft.Authorization/policyDefinitions",
+  "name": "58cd5e9e-35dd-4b32-8985-6ae22c0f67a2",
+  "systemData": {
+    "createdBy": "Supriya.Singh@spektrasystems.com",
+    "createdByType": "User",
+    "createdAt": "2022-08-30T10:19:40.6975247Z",
+    "lastModifiedBy": "Supriya.Singh@spektrasystems.com",
+    "lastModifiedByType": "User",
+    "lastModifiedAt": "2022-08-30T10:19:40.6975247Z"
+  }
+}
