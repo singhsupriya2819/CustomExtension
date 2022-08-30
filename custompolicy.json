@@ -92,7 +92,7 @@
                 {
                   "field": "Microsoft.Compute/virtualMachines/imageSku",
                   "in": [
-                    "Ubuntu 1804"
+                    "18.04-LTS"
                   ]
                 },
                 {
