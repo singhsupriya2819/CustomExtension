@@ -80,7 +80,7 @@
                 {
                   "field": "Microsoft.Compute/virtualMachines/imageOffer",
                   "in": [
-                    "ubuntuserver"
+                    "UbuntuServer"
                   ]
                 },
                 {
