@@ -53,7 +53,7 @@
         }
       },
       {
-        "allof": [
+        "allOf": [
           {
             "field": "type",
             "equals": "Microsoft.Compute/disks"
@@ -61,9 +61,7 @@
           {
             "not": {
               "field": "Microsoft.Compute/disks/Sku.Tier",
-              "in": [
-                "Standard_LRS"
-              ]
+              "in": [ "Standard_LRS" ]
             }
           }
         ]
@@ -79,27 +77,19 @@
               "allOf": [
                 {
                   "field": "Microsoft.Compute/virtualMachines/imageOffer",
-                  "in": [
-                    "UbuntuServer"
-                  ]
+                  "in": [ "UbuntuServer" ]
                 },
                 {
                   "field": "Microsoft.Compute/virtualMachines/imagePublisher",
-                  "in": [
-                    "Canonical"
-                  ]
+                  "in": [ "Canonical" ]
                 },
                 {
                   "field": "Microsoft.Compute/virtualMachines/imageSku",
-                  "in": [
-                    "18.04-LTS"
-                  ]
+                  "in": [ "18.04-LTS" ]
                 },
                 {
                   "field": "Microsoft.Compute/virtualMachines/sku.name",
-                  "in": [
-                    "Standard_B1ms"
-                  ]
+                  "in": [ "Standard_B1ms" ]
                 }
               ]
             }
@@ -109,6 +99,6 @@
     ]
   },
   "then": {
-    "effect": "allow"
+    "effect": "deny"
   }
 }
